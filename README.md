@@ -1,5 +1,6 @@
 Inkle Frontend Intern Assignment
 This project is a frontend assignment built for the Inkle Frontend Intern role.
+Added a simple loading state so the UI doesn’t feel blank when the project opens.
 
 🛠 Tech Stack used : 
 
