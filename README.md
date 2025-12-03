@@ -23,20 +23,21 @@ React Icons
   - Click-to-select
   - Works with a list from the API
  
-Challenges Encountered
+⚠️ Challenges Encountered
+1. Inconsistent API Data
 Some API records had:
-a.Inconsistent API Data
-b.Missing entity names
-c.Invalid or empty dates
-d.These inconsistencies initially caused UI issues, such as "Invalid Date" or blank fields.
+->Missing entity names
+->Invalid or empty dates
+->Inconsistent format of dates
 
-2.Dropdown Positioning & Overflow Issues
-a.One of the biggest UI challenges was ensuring the country filter and modal dropdown appeared correctly:
-b.The filter dropdown was initially hidden behind the table due to overflow: hidden
-c.The modal dropdown initially covered the cancel and save buttons
+2.Dropdown ui issue
+Modal dropdown overlapped Save/Cancel buttons
+Added scrollable dropdown behavior
 
-3. Matching the Figma UI Precisely and accurately - Spacing, colors, shadows, and icon placement had to match the design, especially:
-
- Known Improvements (If given more time)
-- Make the country dropdown searchable.
-- Add loader while fetching.
+3. Matching the Figma UI Precisely
+Focused on:
+Accurate spacing
+Colors & shadows
+Icon placement
+Table Ui 
+Ensured the UI matches the Figma design as closely as possible.
