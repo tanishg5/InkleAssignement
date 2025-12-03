@@ -28,16 +28,16 @@ export default function EditTaxModal({ record, countries, onClose, onSave }) {
     <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
       <div className="bg-white w-[600px] rounded-xl shadow-lg overflow-visible">
 
-        {/* Header */}
+     
         <div className="flex justify-between items-center px-6 py-4 border-b">
           <h2 className="text-lg font-semibold">Edit Customer</h2>
           <FiX className="cursor-pointer" onClick={onClose} />
         </div>
 
-        {/* Body */}
+       
         <div className="px-6 py-5 space-y-4">
 
-          {/* Name */}
+         
           <div>
             <label className="text-sm font-medium flex items-center gap-1">
               Name <span className="text-red-500">*</span>
@@ -49,11 +49,11 @@ export default function EditTaxModal({ record, countries, onClose, onSave }) {
             />
           </div>
 
-          {/* COUNTRY FIELD */}
+         
           <div className="relative">
             <label className="text-sm font-medium">Country</label>
 
-            {/* Selected value box */}
+         
             <div
               className="w-full mt-1 px-3 py-3 border rounded-lg flex justify-between items-center cursor-pointer bg-gray-50"
               onClick={() => setOpen(!open)}
@@ -62,14 +62,14 @@ export default function EditTaxModal({ record, countries, onClose, onSave }) {
                 {countryName || "Select country"}
               </span>
 
-              {/* Pencil appears ONLY after selecting a country */}
+             
               <div className="flex items-center gap-3">
                 {countryName && <FiEdit2 className="text-purple-500 text-sm" />}
                 <FiChevronDown className="text-gray-600 text-lg" />
               </div>
             </div>
 
-            {/* DROPDOWN */}
+           
             {open && (
               <div
               className="
@@ -88,13 +88,13 @@ export default function EditTaxModal({ record, countries, onClose, onSave }) {
                       setOpen(false);
                     }}
                   >
-                    {/* Left: map icon + name */}
+                   
                     <div className="flex items-center gap-2">
                       <LuMapPin className="text-gray-400 text-lg" />
                       <span className="text-gray-700">{c.name || c.country}</span>
                     </div>
 
-                    {/* Pencil icon */}
+                   
                     <FiEdit2 className="text-purple-500 text-sm" />
                   </div>
                 ))}
@@ -103,7 +103,7 @@ export default function EditTaxModal({ record, countries, onClose, onSave }) {
           </div>
         </div>
 
-        {/* Footer */}
+     
         <div className="flex justify-end gap-3 px-6 py-4 border-t bg-gray-50">
           <button className="px-4 py-2 border rounded-md" onClick={onClose}>
             Cancel

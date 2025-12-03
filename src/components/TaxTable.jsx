@@ -13,7 +13,7 @@ export default function TaxTable({ data, onEdit }) {
 
   const filterRef = useRef(null);
 
-  // Close dropdown on outside click
+  
   useEffect(() => {
     const handler = (e) => {
       if (filterRef.current && !filterRef.current.contains(e.target)) {
@@ -24,8 +24,7 @@ export default function TaxTable({ data, onEdit }) {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // FILTER DATA HERE
-  // FILTER DATA HERE
+  
 const filteredData = useMemo(() => {
     if (selectedCountries.length === 0) return data;
   
@@ -98,7 +97,7 @@ const filteredData = useMemo(() => {
               onClick={() => setShowFilter(!showFilter)}
             />
 
-            {/* COUNTRY FILTER DROPDOWN */}
+            
             {showFilter && (
               <div className="absolute top-7 left-0 bg-white border rounded-md shadow-lg p-3 w-40 z-50">
                 {["India", "US", "UK"].map((c) => (
@@ -142,7 +141,7 @@ const filteredData = useMemo(() => {
   );
 
   const table = useReactTable({
-    data: filteredData, // APPLY FILTER HERE
+    data: filteredData,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
