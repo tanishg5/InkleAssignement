@@ -24,8 +24,8 @@ React Icons
   - Works with a list from the API
  
 Challenges Encountered
-1. Inconsistent API Data
-a.Some API records had:
+Some API records had:
+a.Inconsistent API Data
 b.Missing entity names
 c.Invalid or empty dates
 d.These inconsistencies initially caused UI issues, such as "Invalid Date" or blank fields.
