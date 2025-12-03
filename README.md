@@ -35,6 +35,8 @@ a.One of the biggest UI challenges was ensuring the country filter and modal dro
 b.The filter dropdown was initially hidden behind the table due to overflow: hidden
 c.The modal dropdown initially covered the cancel and save buttons
 
+3. Matching the Figma UI Precisely and accurately - Spacing, colors, shadows, and icon placement had to match the design, especially:
+
  Known Improvements (If given more time)
 - Make the country dropdown searchable.
 - Add loader while fetching.
