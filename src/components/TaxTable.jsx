@@ -148,8 +148,8 @@ const filteredData = useMemo(() => {
   });
 
   return (
-    <table className="w-full border rounded-xl bg-white shadow-sm overflow-hidden">
-      <thead className="bg-gray-50">
+    <table className="w-full border rounded-xl bg-white shadow-sm overflow-visible relative">
+      <thead className="bg-gray-50 relative z-[20] overflow-visible">
         {table.getHeaderGroups().map((hg) => (
           <tr key={hg.id}>
             {hg.headers.map((header) => (
@@ -163,7 +163,7 @@ const filteredData = useMemo(() => {
           </tr>
         ))}
       </thead>
-
+  
       <tbody>
         {table.getRowModel().rows.map((row) => (
           <tr key={row.id} className="border-t hover:bg-gray-50">
@@ -177,4 +177,5 @@ const filteredData = useMemo(() => {
       </tbody>
     </table>
   );
+  
 }

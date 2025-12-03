@@ -72,11 +72,12 @@ export default function EditTaxModal({ record, countries, onClose, onSave }) {
             {/* DROPDOWN */}
             {open && (
               <div
-                className="
-                  absolute left-0 right-0 bg-white border rounded-lg shadow-lg mt-2 z-50
-                  max-h-60 overflow-y-auto
-                "
-              >
+              className="
+                w-full bg-white border rounded-lg shadow-lg mt-2
+                max-h-60 overflow-y-auto relative z-50
+              "
+            >
+          
                 {countries.map((c) => (
                   <div
                     key={c.id}
