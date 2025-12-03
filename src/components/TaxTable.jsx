@@ -45,7 +45,7 @@ const filteredData = useMemo(() => {
         header: () => <span className="text-gray-600">Entity</span>,
         cell: (info) => (
           <span className="text-indigo-600 cursor-pointer hover:underline">
-            {info.getValue()}
+            {info.getValue() || "—"}
           </span>
         ),
       },
@@ -80,6 +80,7 @@ const filteredData = useMemo(() => {
               day: "numeric",
               year: "numeric",
             });
+            console.log(formatted);
             return <span>{formatted}</span>;
           },
           
