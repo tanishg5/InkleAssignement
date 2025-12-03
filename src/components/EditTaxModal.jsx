@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { FiX, FiChevronDown } from "react-icons/fi";
+import { FiX, FiChevronDown, FiEdit2 } from "react-icons/fi";
+import { LuMapPin } from "react-icons/lu";
 
 export default function EditTaxModal({ record, countries, onClose, onSave }) {
-  // Detect correct initial country field
   const initialCountry =
     countries.find((c) => c.name === record.country) ||
     countries.find((c) => c.country === record.country);
@@ -16,20 +16,18 @@ export default function EditTaxModal({ record, countries, onClose, onSave }) {
   const [open, setOpen] = useState(false);
 
   const handleSave = () => {
-    const updatedRecord = {
+    onSave({
       ...record,
       name,
       countryId,
       country: countryName,
-    };
-
-    onSave(updatedRecord);
+    });
   };
 
   return (
     <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
-      {/* IMPORTANT: overflow-visible so dropdown is not clipped */}
       <div className="bg-white w-[600px] rounded-xl shadow-lg overflow-visible">
+
         {/* Header */}
         <div className="flex justify-between items-center px-6 py-4 border-b">
           <h2 className="text-lg font-semibold">Edit Customer</h2>
@@ -38,12 +36,12 @@ export default function EditTaxModal({ record, countries, onClose, onSave }) {
 
         {/* Body */}
         <div className="px-6 py-5 space-y-4">
+
           {/* Name */}
           <div>
             <label className="text-sm font-medium flex items-center gap-1">
               Name <span className="text-red-500">*</span>
             </label>
-
             <input
               className="w-full mt-1 px-3 py-2 border rounded-md"
               value={name}
@@ -51,36 +49,52 @@ export default function EditTaxModal({ record, countries, onClose, onSave }) {
             />
           </div>
 
-          {/* Country Dropdown */}
+          {/* COUNTRY FIELD */}
           <div className="relative">
             <label className="text-sm font-medium">Country</label>
 
+            {/* Selected value box */}
             <div
-              className="w-full mt-1 px-3 py-2 border rounded-md flex justify-between items-center cursor-pointer"
+              className="w-full mt-1 px-3 py-3 border rounded-lg flex justify-between items-center cursor-pointer bg-gray-50"
               onClick={() => setOpen(!open)}
             >
-              <span>{countryName || "Select country"}</span>
-              <FiChevronDown />
+              <span className="text-gray-800 font-medium">
+                {countryName || "Select country"}
+              </span>
+
+              {/* Pencil appears ONLY after selecting a country */}
+              <div className="flex items-center gap-3">
+                {countryName && <FiEdit2 className="text-purple-500 text-sm" />}
+                <FiChevronDown className="text-gray-600 text-lg" />
+              </div>
             </div>
 
+            {/* DROPDOWN */}
             {open && (
               <div
                 className="
-                  absolute left-0 right-0 bg-white border rounded-md shadow-lg mt-1 z-50
+                  absolute left-0 right-0 bg-white border rounded-lg shadow-lg mt-2 z-50
                   max-h-60 overflow-y-auto
                 "
               >
                 {countries.map((c) => (
                   <div
                     key={c.id}
-                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                    className="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-gray-100"
                     onClick={() => {
                       setCountryId(c.id);
                       setCountryName(c.name || c.country);
                       setOpen(false);
                     }}
                   >
-                    {c.name || c.country}
+                    {/* Left: map icon + name */}
+                    <div className="flex items-center gap-2">
+                      <LuMapPin className="text-gray-400 text-lg" />
+                      <span className="text-gray-700">{c.name || c.country}</span>
+                    </div>
+
+                    {/* Pencil icon */}
+                    <FiEdit2 className="text-purple-500 text-sm" />
                   </div>
                 ))}
               </div>

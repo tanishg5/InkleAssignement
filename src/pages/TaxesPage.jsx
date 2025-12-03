@@ -57,7 +57,6 @@ export default function TaxesPage() {
 
   return (
     <div className="p-8">
-      <h1 className="text-xl font-semibold mb-4">Taxes Records</h1>
 
       <TaxTable data={taxes} onEdit={setSelected} />
 
